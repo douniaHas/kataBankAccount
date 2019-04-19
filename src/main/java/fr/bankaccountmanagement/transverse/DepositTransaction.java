@@ -11,8 +11,8 @@ public class DepositTransaction extends Transaction {
 	}
 	
 	@Override
-	public Operation getOperation() {
-		return Operation.DEPOSIT; 
+	public TransactionType getOperation() {
+		return TransactionType.DEPOSIT; 
 	}
 
 }

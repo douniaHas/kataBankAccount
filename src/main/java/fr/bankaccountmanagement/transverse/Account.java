@@ -25,7 +25,7 @@ public class Account {
 				.collect(Collectors.joining("\n"));
 	}
 
-	public synchronized BigDecimal updateBalance(BigDecimal amount, Operation operation, LocalDateTime operationDate) {
+	public synchronized BigDecimal updateBalance(BigDecimal amount, TransactionType operation, LocalDateTime operationDate) {
 		TransactionFactoryImpl transactionFactory = new TransactionFactoryImpl(); 
 		Transaction transaction = transactionFactory.makeTransaction(format(amount), operation, balance, operationDate);
 		transactions.add(transaction);

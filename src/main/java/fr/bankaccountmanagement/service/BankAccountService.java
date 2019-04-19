@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import fr.bankaccountmanagement.exceptions.InvalidAmountException;
 import fr.bankaccountmanagement.tools.NumberTools;
 import fr.bankaccountmanagement.transverse.Account;
-import fr.bankaccountmanagement.transverse.Operation;
+import fr.bankaccountmanagement.transverse.TransactionType;
 
 public class BankAccountService {
 
@@ -24,9 +24,9 @@ public class BankAccountService {
 	 * @return
 	 * @throws InvalidAmountException
 	 */
-	public static BigDecimal updateAccountBalance(Account account, BigDecimal amount, Operation operation,
+	public static BigDecimal updateAccountBalance(Account account, BigDecimal amount, TransactionType operation,
 			LocalDateTime operationDate) throws InvalidAmountException {
-		NumberTools.checkAmount(amount);
+		checkTransactionValidity(amount);
 		return account.updateBalance(amount, operation, operationDate);
 	}
 
@@ -40,6 +40,10 @@ public class BankAccountService {
 		String message = account.buildMessage();
 		printStream.println(message);
 		return message;
+	}
+	
+	private static void checkTransactionValidity(BigDecimal amount) throws InvalidAmountException {
+		NumberTools.checkInvalidAmount(amount);
 	}
 
 }

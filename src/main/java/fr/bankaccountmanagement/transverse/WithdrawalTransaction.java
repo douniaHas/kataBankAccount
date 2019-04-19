@@ -11,8 +11,8 @@ public class WithdrawalTransaction extends Transaction {
 	}
 
 	@Override
-	public Operation getOperation() {
-		return Operation.WITHDRAWAL; 
+	public TransactionType getOperation() {
+		return TransactionType.WITHDRAWAL; 
 	}
 
 }

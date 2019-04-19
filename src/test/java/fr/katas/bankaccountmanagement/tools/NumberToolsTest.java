@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fr.bankaccountmanagement.exceptions.InvalidAmountException;
-import static fr.bankaccountmanagement.tools.NumberTools.checkAmount;
+import static fr.bankaccountmanagement.tools.NumberTools.checkInvalidAmount;
 import static fr.bankaccountmanagement.tools.NumberTools.format;
 
 public class NumberToolsTest {
@@ -14,7 +14,7 @@ public class NumberToolsTest {
 	@Test
 	public void controlPermittedAmountTest(){
 		try{
-			checkAmount(BigDecimal.valueOf(10));
+			checkInvalidAmount(BigDecimal.valueOf(10));
 		}
 		catch(Exception e){
 			Assert.fail(); 
@@ -23,19 +23,19 @@ public class NumberToolsTest {
 	
 	@Test(expected = InvalidAmountException.class)
 	public void controlZeroAmountTest() throws InvalidAmountException {
-		checkAmount(BigDecimal.ZERO);
+		checkInvalidAmount(BigDecimal.ZERO);
 	}
 	
 	
 	@Test(expected = InvalidAmountException.class)
 	public void checkAmountNull() throws InvalidAmountException {
-		checkAmount(null);
+		checkInvalidAmount(null);
 	}
 	
 	@Test
 	public void checkNegativeAmount() {
 		try{
-			checkAmount(BigDecimal.valueOf(-10)); 
+			checkInvalidAmount(BigDecimal.valueOf(-10)); 
 			Assert.fail();
 		}
 		catch(Exception e){

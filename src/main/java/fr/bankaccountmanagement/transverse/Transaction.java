@@ -20,7 +20,7 @@ public abstract class Transaction {
 		return this.amount;
 	}
 
-	public abstract Operation getOperation(); 
+	public abstract TransactionType getOperation(); 
 	
 	public LocalDateTime getDateOperation(){
 		return this.operationDate; 

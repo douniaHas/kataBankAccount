@@ -16,7 +16,7 @@ public final class NumberTools {
 		return number.setScale(2, RoundingMode.HALF_EVEN); 
 	}
 
-	public static void checkAmount(BigDecimal number) throws InvalidAmountException {
+	public static void checkInvalidAmount(BigDecimal number) throws InvalidAmountException {
 		if (number == null || number.compareTo(BigDecimal.ZERO) <= 0){
 			throw new InvalidAmountException(S_NOT_PERMITTED_AMOUNT); 
 		} 

@@ -5,5 +5,5 @@ import java.time.LocalDateTime;
 
 @FunctionalInterface
 public interface TransactionFactory {
-	public Transaction makeTransaction(BigDecimal amount, Operation operation, BigDecimal balance, LocalDateTime operationDate);
+	public Transaction makeTransaction(BigDecimal amount, TransactionType operation, BigDecimal balance, LocalDateTime operationDate);
 }
